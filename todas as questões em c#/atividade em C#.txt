@@ -1,0 +1,280 @@
+1) C#
+Classe Pessoa:
+
+namespace Course {
+	class Pessoa {
+
+		public string Nome;
+		public int Idade;
+	}
+}
+
+Classe Program: 
+
+using System; 
+
+namespace Course {
+	class Program {
+		static void Main(string[] args) {
+		
+			Pessoa p1 = new Pessoa();
+			Pessoa p2 = new Pessoa();
+			
+			Console.WriteLine("Dados da primeira pessoa:");
+			Console.Write("Nome: ");
+			p1.Nome = Console.ReadLine();
+			Console.Write("Idade: ");
+			p1.Idade = int.Parse(Console.ReadLine());
+
+			Console.WriteLine("Dados da segunda pessoa:");
+			Console.Write("Nome: ");
+			p2.Nome = Console.ReadLine();
+			Console.Write("Idade: ");
+			p2.Idade = int.Parse(Console.ReadLine());
+			
+			if (p1.Idade > p2.Idade) {
+				Console.WriteLine("Pessoa mais velha: " + p1.Nome);
+			} else {
+				Console.WriteLine("Pessoa mais velha: " + p2.Nome);
+			}
+		}
+	}
+}
+
+
+2) C#
+Classe Funcionário:
+
+namespace Course {
+	class Funcionario {
+		
+		public string Nome;
+		public double Salario;
+	}
+}
+
+Classe Program:
+
+using System; 
+using System.Globalization;
+
+namespace Course { 
+	class Program {
+		static void Main(string[] args) {
+
+			Funcionario f1 = new Funcionario();
+			Funcionario f2 = new Funcionario();
+			
+			Console.WriteLine("Dados do primeiro funcionário:");
+			Console.Write("Nome: ");
+			f1.Nome = Console.ReadLine();
+			Console.Write("Salário: ");
+			f1.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+			
+			Console.WriteLine("Dados do segundo funcionário:");
+			Console.Write("Nome: ");
+			f2.Nome = Console.ReadLine();
+			Console.Write("Salário: ");
+			f2.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+			double media = (f1.Salario + f2.Salario) / 2.0;
+
+			Console.WriteLine("Salário médio = " + media.ToString("F2", CultureInfo.InvariantCulture));
+
+		}
+	}
+}
+
+3)C#
+Classe Retângulo:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Course {
+       class Retangulo {
+        
+            public double Largura;
+            public double Altura;
+        
+            public double Area() {
+                return Largura * Altura;
+            }
+        
+            public double Perimetro() {
+            return 2 * (Largura + Altura);
+            }
+        
+            public double Diagonal() {
+                return Math.Sqrt(Largura * Largura + Altura * Altura);
+            }
+       }   
+}
+
+Classe Program:
+
+using System;
+using System.Globalization; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+name Course {
+	class Program {
+		static void Main(string[] args) {
+		
+		Retangulo ret = new Retangulo();
+
+		Console.WriteLine("Entre a largua e a altura do retângulo: ");
+		ret.Largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); 
+		ret.Altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+		
+		Console.WriteLine("AREA = " + ret.Area().ToString("F2", CultureInfo.InvariantCulture));
+		Console.WriteLine("PERIMETRO = " + ret.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+		Console.WriteLine("DIAGONAL = " + ret.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+		}
+	}
+}
+
+
+4) C#
+Classe funcionário:
+
+using System;
+using System.Globalization; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+name Course {
+	class Funcionario {
+
+		public string Nome;
+		public double SalarioBruto;
+		public double Imposto;
+		
+		public double Salario() {
+			return SalarioBruto - Imposto;
+		}
+		
+		public void AumentarSalario(double porcentagem) {
+			SalarioBruto = SalarioBruto + (SalarioBruto * porcentagem / 100.0);
+		}
+
+		public override string ToString() {
+			return Nome
+			+ ", R$"
+			+ SalarioLiquido().ToString("F2", CultureInfo.InvariantCulture);
+		}
+	}
+}
+
+Classe Program:
+
+using System;
+using System.Globalization; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Course{
+	classe Program
+		static void Main(string[] args) {
+
+			Funcionario func = new Funcionario();
+
+			Console.write("Nome: ");
+			func.Nome = Console.ReadLine();
+			Console.Write("Salario bruto: ");
+			func.SalarioBruto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+			Console.Write("Imposto: ");
+			func.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+			
+			Console.WriteLine();
+			Console.WriteLine("Funcionário: " + func);
+			
+			Console.WriteLine();
+			Console.Write("Deseja aumentar o salário em qual porcentagem? "); 
+			double porcent = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+			func.AumentarSalario(porcent); 
+
+			Console.WriteLine();
+			Console.WriteLine("Dados atualizados: " + func);
+		}
+	}
+}
+
+5) C#
+
+Classe Aluno:
+
+using System;
+using System.Globalization; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Course {
+	class Aluno {
+		public string Nome;
+		public double Nota1, Nota2, Nota3;
+		
+		public double NotaFinal() {
+			return Nota1 + Nota2 + Nota3;
+		}
+		
+		public bool Aprovado() {
+			if (NotaFinal() >= 60.0) {
+				return true;
+			} else {
+				return false;
+		}
+	}
+	
+		public double NotaRestante() {
+			if(Aprovado()) {
+				return 0.0;
+			} else {
+				return 60.0 - NotaFinal();
+			}
+		}
+	}
+}
+
+Classe Program:
+
+using System;
+using System.Globalization; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Course { 
+	class Program {
+		static void Main(string[] args) {
+
+		Aluno aluno = new Aluno();
+		
+		Console.Write("Nome do aluno: ");
+		aluno.Nome = Console.ReadLine();
+		Console.WriteLine("Digite as três notas do aluno:"); 
+		aluno.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+		aluno.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+		aluno.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+		Console.WriteLine("NOTA FINAL = "
+			+ aluno.NotaFinal().ToString("F2", CultureInfo.InvariantCulture));
+	
+		if (aluno.Aprovado()) {	
+			Console.WriteLine("APROVADO");
+		} else { 
+			Console.WriteLine("REPROVADO");
+			Console.WriteLine("FALTARAM "
+				+ aluno.NotaRestante().ToString("F2", CultureInfo.InvariantCulture)
+				+ " PONTOS");
+			}
+		}
+	}
+}
+	
